@@ -28,6 +28,9 @@
 #define Limage(a) [UIImage imageNamed:a]
 #import "Tion.h"
 
+#define kehuKey @"kehuKey"
+#define yewuKey @"yewuKey"
+#define shangPingKey @"shangPingKey"
 
 //客户信息查询
 #define kehuName @"姓名"

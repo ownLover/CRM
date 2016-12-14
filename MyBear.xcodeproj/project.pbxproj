@@ -122,6 +122,17 @@
 		707284081D9E06EE00274CE2 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707284021D9E06EE00274CE2 /* BaseViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		707284091D9E06EE00274CE2 /* BaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707284031D9E06EE00274CE2 /* BaseViewController.xib */; };
 		7072840A1D9E06EE00274CE2 /* KKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 707284051D9E06EE00274CE2 /* KKViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		709AEBDC1E00EB0B008C07F1 /* KeHuListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBDB1E00EB0B008C07F1 /* KeHuListViewController.m */; };
+		709AEBE01E00EB91008C07F1 /* addKeHuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBDE1E00EB91008C07F1 /* addKeHuViewController.m */; };
+		709AEBE11E00EB91008C07F1 /* addKeHuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709AEBDF1E00EB91008C07F1 /* addKeHuViewController.xib */; };
+		709AEBE51E00F379008C07F1 /* yeWulistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBE41E00F379008C07F1 /* yeWulistViewController.m */; };
+		709AEBE91E00F3A9008C07F1 /* addYeWuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBE71E00F3A9008C07F1 /* addYeWuViewController.m */; };
+		709AEBEA1E00F3A9008C07F1 /* addYeWuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709AEBE81E00F3A9008C07F1 /* addYeWuViewController.xib */; };
+		709AEBF11E0132FB008C07F1 /* lingDaoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBEF1E0132FB008C07F1 /* lingDaoViewController.m */; };
+		709AEBF21E0132FB008C07F1 /* lingDaoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709AEBF01E0132FB008C07F1 /* lingDaoViewController.xib */; };
+		709AEBF61E0168BA008C07F1 /* shangPingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBF51E0168BA008C07F1 /* shangPingListViewController.m */; };
+		709AEBFA1E0169B1008C07F1 /* addShangPingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709AEBF81E0169B1008C07F1 /* addShangPingViewController.m */; };
+		709AEBFB1E0169B1008C07F1 /* addShangPingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709AEBF91E0169B1008C07F1 /* addShangPingViewController.xib */; };
 		70AEA95A1DA8E73D001EEB35 /* btn_NavBackDefault@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AEA9591DA8E73D001EEB35 /* btn_NavBackDefault@2x.png */; };
 		70D21BEE1DADE481005CE9E8 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D21BD51DADE481005CE9E8 /* MASCompositeConstraint.m */; };
 		70D21BEF1DADE481005CE9E8 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D21BD81DADE481005CE9E8 /* MASConstraint.m */; };
@@ -372,6 +383,24 @@
 		707284031D9E06EE00274CE2 /* BaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseViewController.xib; sourceTree = "<group>"; };
 		707284041D9E06EE00274CE2 /* KKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKViewController.h; sourceTree = "<group>"; };
 		707284051D9E06EE00274CE2 /* KKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKViewController.m; sourceTree = "<group>"; };
+		709AEBDA1E00EB0B008C07F1 /* KeHuListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeHuListViewController.h; sourceTree = "<group>"; };
+		709AEBDB1E00EB0B008C07F1 /* KeHuListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeHuListViewController.m; sourceTree = "<group>"; };
+		709AEBDD1E00EB91008C07F1 /* addKeHuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addKeHuViewController.h; sourceTree = "<group>"; };
+		709AEBDE1E00EB91008C07F1 /* addKeHuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addKeHuViewController.m; sourceTree = "<group>"; };
+		709AEBDF1E00EB91008C07F1 /* addKeHuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addKeHuViewController.xib; sourceTree = "<group>"; };
+		709AEBE31E00F379008C07F1 /* yeWulistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yeWulistViewController.h; sourceTree = "<group>"; };
+		709AEBE41E00F379008C07F1 /* yeWulistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yeWulistViewController.m; sourceTree = "<group>"; };
+		709AEBE61E00F3A9008C07F1 /* addYeWuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addYeWuViewController.h; sourceTree = "<group>"; };
+		709AEBE71E00F3A9008C07F1 /* addYeWuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addYeWuViewController.m; sourceTree = "<group>"; };
+		709AEBE81E00F3A9008C07F1 /* addYeWuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addYeWuViewController.xib; sourceTree = "<group>"; };
+		709AEBEE1E0132FB008C07F1 /* lingDaoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lingDaoViewController.h; sourceTree = "<group>"; };
+		709AEBEF1E0132FB008C07F1 /* lingDaoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lingDaoViewController.m; sourceTree = "<group>"; };
+		709AEBF01E0132FB008C07F1 /* lingDaoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = lingDaoViewController.xib; sourceTree = "<group>"; };
+		709AEBF41E0168BA008C07F1 /* shangPingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shangPingListViewController.h; sourceTree = "<group>"; };
+		709AEBF51E0168BA008C07F1 /* shangPingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shangPingListViewController.m; sourceTree = "<group>"; };
+		709AEBF71E0169B1008C07F1 /* addShangPingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addShangPingViewController.h; sourceTree = "<group>"; };
+		709AEBF81E0169B1008C07F1 /* addShangPingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addShangPingViewController.m; sourceTree = "<group>"; };
+		709AEBF91E0169B1008C07F1 /* addShangPingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addShangPingViewController.xib; sourceTree = "<group>"; };
 		70AEA9591DA8E73D001EEB35 /* btn_NavBackDefault@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_NavBackDefault@2x.png"; sourceTree = "<group>"; };
 		70D21BD41DADE481005CE9E8 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		70D21BD51DADE481005CE9E8 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -926,6 +955,9 @@
 		705CA6AD1D9DF418003D1686 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				709AEBF31E01683B008C07F1 /* 商品 */,
+				709AEBED1E0132EB008C07F1 /* 领导 */,
+				709AEBE21E00F36A008C07F1 /* 业务员 */,
 				DA05FB761E005BF70054825D /* 客户 */,
 				707283FC1D9E06BA00274CE2 /* Base */,
 				7046C05A1DF93AAA00731FAA /* LoginViewController.h */,
@@ -1050,6 +1082,40 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		709AEBE21E00F36A008C07F1 /* 业务员 */ = {
+			isa = PBXGroup;
+			children = (
+				709AEBE31E00F379008C07F1 /* yeWulistViewController.h */,
+				709AEBE41E00F379008C07F1 /* yeWulistViewController.m */,
+				709AEBE61E00F3A9008C07F1 /* addYeWuViewController.h */,
+				709AEBE71E00F3A9008C07F1 /* addYeWuViewController.m */,
+				709AEBE81E00F3A9008C07F1 /* addYeWuViewController.xib */,
+			);
+			name = "业务员";
+			sourceTree = "<group>";
+		};
+		709AEBED1E0132EB008C07F1 /* 领导 */ = {
+			isa = PBXGroup;
+			children = (
+				709AEBEE1E0132FB008C07F1 /* lingDaoViewController.h */,
+				709AEBEF1E0132FB008C07F1 /* lingDaoViewController.m */,
+				709AEBF01E0132FB008C07F1 /* lingDaoViewController.xib */,
+			);
+			name = "领导";
+			sourceTree = "<group>";
+		};
+		709AEBF31E01683B008C07F1 /* 商品 */ = {
+			isa = PBXGroup;
+			children = (
+				709AEBF41E0168BA008C07F1 /* shangPingListViewController.h */,
+				709AEBF51E0168BA008C07F1 /* shangPingListViewController.m */,
+				709AEBF71E0169B1008C07F1 /* addShangPingViewController.h */,
+				709AEBF81E0169B1008C07F1 /* addShangPingViewController.m */,
+				709AEBF91E0169B1008C07F1 /* addShangPingViewController.xib */,
+			);
+			name = "商品";
+			sourceTree = "<group>";
+		};
 		70D21BD21DADE481005CE9E8 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,8 +1189,13 @@
 		DA05FB761E005BF70054825D /* 客户 */ = {
 			isa = PBXGroup;
 			children = (
+				709AEBDA1E00EB0B008C07F1 /* KeHuListViewController.h */,
+				709AEBDB1E00EB0B008C07F1 /* KeHuListViewController.m */,
 				DA05FB771E005C110054825D /* KeHuViewController.h */,
 				DA05FB781E005C110054825D /* KeHuViewController.m */,
+				709AEBDD1E00EB91008C07F1 /* addKeHuViewController.h */,
+				709AEBDE1E00EB91008C07F1 /* addKeHuViewController.m */,
+				709AEBDF1E00EB91008C07F1 /* addKeHuViewController.xib */,
 			);
 			name = "客户";
 			sourceTree = "<group>";
@@ -1244,12 +1315,16 @@
 				705CA6851D9DF09F003D1686 /* Assets.xcassets in Resources */,
 				706FF0D51DDB069F00BCAB8E /* bg2.png in Resources */,
 				706FF0DB1DDB069F00BCAB8E /* bg8.png in Resources */,
+				709AEBF21E0132FB008C07F1 /* lingDaoViewController.xib in Resources */,
+				709AEBEA1E00F3A9008C07F1 /* addYeWuViewController.xib in Resources */,
 				706FF0D61DDB069F00BCAB8E /* bg3.png in Resources */,
 				706FF0D31DDB069F00BCAB8E /* bg0.png in Resources */,
 				706FF0D91DDB069F00BCAB8E /* bg6.png in Resources */,
 				700A4B581DAA1BE600A5A318 /* KKScrollVewRefresh.bundle in Resources */,
+				709AEBFB1E0169B1008C07F1 /* addShangPingViewController.xib in Resources */,
 				706FF0DA1DDB069F00BCAB8E /* bg7.png in Resources */,
 				706FF0D41DDB069F00BCAB8E /* bg1.png in Resources */,
+				709AEBE11E00EB91008C07F1 /* addKeHuViewController.xib in Resources */,
 				706FF0D81DDB069F00BCAB8E /* bg5.png in Resources */,
 				707283FA1D9E061300274CE2 /* wo.png in Resources */,
 				706FF0DC1DDB069F00BCAB8E /* bg9.png in Resources */,
@@ -1283,6 +1358,7 @@
 				70D21C181DAE028E005CE9E8 /* KIImageCropperView.m in Sources */,
 				700A4B641DAA1BE600A5A318 /* MKAnnotationView+WebCache.m in Sources */,
 				700A4B401DAA1BE600A5A318 /* ASINetworkQueue.m in Sources */,
+				709AEBDC1E00EB0B008C07F1 /* KeHuListViewController.m in Sources */,
 				700A4B371DAA1BE600A5A318 /* NSData+CommonCrypto.m in Sources */,
 				705CA6FD1D9DF59E003D1686 /* UIView+SDExtension.m in Sources */,
 				700A4B4F1DAA1BE600A5A318 /* KKFormRequest.m in Sources */,
@@ -1319,8 +1395,10 @@
 				70D21BF11DADE481005CE9E8 /* MASLayoutConstraint.m in Sources */,
 				70D21C201DAE02D1005CE9E8 /* BaseNavigationController.m in Sources */,
 				700A4B501DAA1BE600A5A318 /* KKNetWorkObserver.m in Sources */,
+				709AEBFA1E0169B1008C07F1 /* addShangPingViewController.m in Sources */,
 				7072840A1D9E06EE00274CE2 /* KKViewController.m in Sources */,
 				707284071D9E06EE00274CE2 /* BaseTableViewController.m in Sources */,
+				709AEBF61E0168BA008C07F1 /* shangPingListViewController.m in Sources */,
 				70D21BF71DADE481005CE9E8 /* ViewController+MASAdditions.m in Sources */,
 				700A4B6F1DAA1BE600A5A318 /* UIImage+MultiFormat.m in Sources */,
 				705CA6F81D9DF59E003D1686 /* TAAnimatedDotView.m in Sources */,
@@ -1342,6 +1420,7 @@
 				700A4B621DAA1BE600A5A318 /* NetWorkSender.m in Sources */,
 				700A4B611DAA1BE600A5A318 /* BaseRequestParam.m in Sources */,
 				7046C05D1DF93AAA00731FAA /* LoginViewController.m in Sources */,
+				709AEBF11E0132FB008C07F1 /* lingDaoViewController.m in Sources */,
 				700A4B471DAA1BE600A5A318 /* FMDatabaseQueue.m in Sources */,
 				7054A1A41DAB402C00DCA8D5 /* Net.m in Sources */,
 				700A4B461DAA1BE600A5A318 /* FMDatabasePool.m in Sources */,
@@ -1352,6 +1431,7 @@
 				700A4B391DAA1BE600A5A318 /* ASIAuthenticationDialog.m in Sources */,
 				70D21C1D1DAE028E005CE9E8 /* KKAlbumPickerPhotoViewController.m in Sources */,
 				700A4B481DAA1BE600A5A318 /* FMResultSet.m in Sources */,
+				709AEBE91E00F3A9008C07F1 /* addYeWuViewController.m in Sources */,
 				705CA6FC1D9DF59E003D1686 /* SDCycleScrollView.m in Sources */,
 				700A4B571DAA1BE600A5A318 /* KKRefreshHeaderView.m in Sources */,
 				700A4B381DAA1BE600A5A318 /* NSString+Base64.m in Sources */,
@@ -1371,6 +1451,7 @@
 				70D21BEF1DADE481005CE9E8 /* MASConstraint.m in Sources */,
 				700A4B451DAA1BE600A5A318 /* FMDatabaseAdditions.m in Sources */,
 				700A4B3E1DAA1BE600A5A318 /* ASIHTTPRequest.m in Sources */,
+				709AEBE51E00F379008C07F1 /* yeWulistViewController.m in Sources */,
 				700A4B671DAA1BE600A5A318 /* SDWebImageCompat.m in Sources */,
 				700A4B491DAA1BE600A5A318 /* orderTableClass.m in Sources */,
 				700A4B351DAA1BE600A5A318 /* AESCrypt.m in Sources */,
@@ -1379,6 +1460,7 @@
 				700A4B5D1DAA1BE600A5A318 /* LColorText.m in Sources */,
 				700A4B3D1DAA1BE600A5A318 /* ASIFormDataRequest.m in Sources */,
 				705CA67A1D9DF09F003D1686 /* main.m in Sources */,
+				709AEBE01E00EB91008C07F1 /* addKeHuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

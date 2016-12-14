@@ -34,15 +34,15 @@
     [dataSource addObject:@"联系方式"];
     [dataSource addObject:@"邮件"];
     [dataSource addObject:@"对接业务员"];
-    [dataSource addObject:@"订单状态跟踪"];
+    [dataSource addObject:@"订单状态"];
     [dataSource addObject:@"意见反馈"];
     myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ApplicationWidth, ApplicationHeight-44)];
     myTableView.delegate = self;
     myTableView.dataSource = self;
     //myTableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    //myTableView.estimatedRowHeight = 1000;
+    myTableView.estimatedRowHeight = 1000;
     
-    //myTableView.rowHeight = UITableViewAutomaticDimension;
+    myTableView.rowHeight = UITableViewAutomaticDimension;
     
     [myTableView setTableFooterView:[[UIView alloc]init]];
     
@@ -64,7 +64,39 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier01];
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier01];
+        
+        UILabel *lab = [[UILabel alloc]init];
+        //        lab.font = <##>;
+        //        lab.textColor = <##>;
+        //        lab.text= <##> ;
+        lab.tag=100;
+        [cell.contentView addSubview:lab];
+        [lab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.offset=15;
+            make.left.offset=15;
+        }];
+        
+        UILabel *lab1 = [[UILabel alloc]init];
+        //        lab.font = <##>;
+        //        lab.textColor = <##>;
+        //        lab.text= <##> ;
+        lab1.tag=200;
+        [cell.contentView addSubview:lab1];
+        [lab1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(lab.mas_bottom).offset= 15;
+            make.left.offset=15;
+            make.right.offset=-15;
+            make.bottom.offset=-15;
+        }];
+        
+
+        
     }
+    UILabel *lab=[cell.contentView viewWithTag:100];
+    lab.text=dataSource[indexPath.row];
+    
+    UILabel *lab1=[cell.contentView viewWithTag:200];
+
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = myBackgroundColor;
     return cell;
@@ -75,9 +107,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 60;
+//}
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
 //    return <#expression#>;

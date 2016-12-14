@@ -19,5 +19,6 @@
 
 #define NSNotificationNameZhiWeiXuanZe @"NSNotificationNameZhiWeiXuanZe"
 #import "LoginViewController.h"
+#import "lingDaoViewController.h"
 
 #endif /* Header_h */

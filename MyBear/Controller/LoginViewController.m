@@ -39,15 +39,25 @@
 
 }
 - (IBAction)loginBtnClick:(id)sender {
+    
+    
+    lingDaoViewController *viewController = [[lingDaoViewController alloc]init];
+    [self.navigationController pushViewController:viewController animated:YES];
+ 
+    
+    return;
+    
     if ([_nameTf.text isEqualToString:@""]||[_pwdTf.text isEqualToString:@""]) {
         KKShowNoticeMessage(@"填写用户名或密码");
         return;
     }
     if ([_roleLab.text isEqualToString:@"领导"]) {
-        
-        return;
+
         if ([_nameTf.text isEqualToString:@"admin"]&&[_pwdTf.text isEqualToString:@"123"]) {
             
+            lingDaoViewController *viewController = [[lingDaoViewController alloc]init];
+            [self.navigationController pushViewController:viewController animated:YES];
+
         }else{
             KKShowNoticeMessage(@"账号或密码错误");
         }
