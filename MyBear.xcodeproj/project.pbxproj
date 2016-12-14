@@ -142,6 +142,7 @@
 		70D21C1C1DAE028E005CE9E8 /* KKAlbumPickerDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D21C131DAE028E005CE9E8 /* KKAlbumPickerDirectoryViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70D21C1D1DAE028E005CE9E8 /* KKAlbumPickerPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D21C151DAE028E005CE9E8 /* KKAlbumPickerPhotoViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		70D21C201DAE02D1005CE9E8 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D21C1F1DAE02D1005CE9E8 /* BaseNavigationController.m */; };
+		DA05FB791E005C110054825D /* KeHuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA05FB781E005C110054825D /* KeHuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -414,6 +415,8 @@
 		70D21C151DAE028E005CE9E8 /* KKAlbumPickerPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKAlbumPickerPhotoViewController.m; sourceTree = "<group>"; };
 		70D21C1E1DAE02D1005CE9E8 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
 		70D21C1F1DAE02D1005CE9E8 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		DA05FB771E005C110054825D /* KeHuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeHuViewController.h; sourceTree = "<group>"; };
+		DA05FB781E005C110054825D /* KeHuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeHuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -923,6 +926,7 @@
 		705CA6AD1D9DF418003D1686 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA05FB761E005BF70054825D /* 客户 */,
 				707283FC1D9E06BA00274CE2 /* Base */,
 				7046C05A1DF93AAA00731FAA /* LoginViewController.h */,
 				7046C05B1DF93AAA00731FAA /* LoginViewController.m */,
@@ -1114,6 +1118,15 @@
 				70D21C0E1DAE028E005CE9E8 /* KIImageCropperViewController.m */,
 			);
 			path = KIImageCropperViewController;
+			sourceTree = "<group>";
+		};
+		DA05FB761E005BF70054825D /* 客户 */ = {
+			isa = PBXGroup;
+			children = (
+				DA05FB771E005C110054825D /* KeHuViewController.h */,
+				DA05FB781E005C110054825D /* KeHuViewController.m */,
+			);
+			name = "客户";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1325,6 +1338,7 @@
 				700A4B6A1DAA1BE600A5A318 /* SDWebImageDownloaderOperation.m in Sources */,
 				705CA6F71D9DF59E003D1686 /* TAAbstractDotView.m in Sources */,
 				700A4B631DAA1BE600A5A318 /* NetWorkSender_Basic.m in Sources */,
+				DA05FB791E005C110054825D /* KeHuViewController.m in Sources */,
 				700A4B621DAA1BE600A5A318 /* NetWorkSender.m in Sources */,
 				700A4B611DAA1BE600A5A318 /* BaseRequestParam.m in Sources */,
 				7046C05D1DF93AAA00731FAA /* LoginViewController.m in Sources */,

@@ -38,6 +38,27 @@
     _roleLab.text=btn.titleLabel.text;;
 
 }
+- (IBAction)loginBtnClick:(id)sender {
+    if ([_nameTf.text isEqualToString:@""]||[_pwdTf.text isEqualToString:@""]) {
+        KKShowNoticeMessage(@"填写用户名或密码");
+        return;
+    }
+    if ([_roleLab.text isEqualToString:@"领导"]) {
+        
+        return;
+        if ([_nameTf.text isEqualToString:@"admin"]&&[_pwdTf.text isEqualToString:@"123"]) {
+            
+        }else{
+            KKShowNoticeMessage(@"账号或密码错误");
+        }
+    }
+    if ([_roleLab.text isEqualToString:@"业务员"]) {
+        
+    }
+    if ([_roleLab.text isEqualToString:@"客户"]) {
+        
+    }
+}
 
 /*
 #pragma mark - Navigation
