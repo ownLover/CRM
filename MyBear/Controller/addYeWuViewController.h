@@ -16,4 +16,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *gonghaoTf;
 @property (weak, nonatomic) IBOutlet UITextField *lianxifangshiTf;
 @property (weak, nonatomic) IBOutlet UITextField *youjianTf;
+
+
+@property(nonatomic,retain)NSDictionary *dataDic;
+@property(nonatomic,assign)NSInteger nowIndex;
+
+@property(nonatomic,assign)BOOL isZijI;
+
 @end

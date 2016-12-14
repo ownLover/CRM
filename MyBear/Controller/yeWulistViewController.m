@@ -27,6 +27,9 @@
     dataSource=[[NSMutableArray alloc]init];
     if (arr) {
         [dataSource addObjectsFromArray:arr];
+    }else{
+        [dataSource addObject:@{yeWuYuanName:@"业务员0号",yeWuYuanXingBie:@"男",yeWuYuanGongHao:@"001",yeWuYuanLianXi:@"15208107260",yeWuYuanYouJian:@"2225433460@qq.com"}];
+        [LUserDefault setObject:dataSource forKey:yewuKey];
     }
     [myTableView reloadData];
     
@@ -77,6 +80,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary *dic=dataSource[indexPath.row];
+    
+    addYeWuViewController *viewController = [[addYeWuViewController alloc]init];
+    viewController.dataDic=dic;
+    viewController.nowIndex=indexPath.row;
+    [self.navigationController pushViewController:viewController animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

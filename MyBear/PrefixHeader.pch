@@ -27,10 +27,12 @@
 
 #define Limage(a) [UIImage imageNamed:a]
 #import "Tion.h"
+#import "chakanYIjianViewController.h"
 
 #define kehuKey @"kehuKey"
 #define yewuKey @"yewuKey"
 #define shangPingKey @"shangPingKey"
+#define dingdanKey @"dingdanKey"
 
 //客户信息查询
 #define kehuName @"姓名"
@@ -40,6 +42,13 @@
 #define kehuYouJian @"邮件"
 #define kehuDuiJieYeWuYuan @"对接业务员"
 #define kehuDingDanZhuangTai @"订单状态"
+
+#define kehuyijian @"客户意见"
+
+#define kehudingdan @"客户订单"
+#define kehudingdanShangPing @"订单商品"
+#define kehudingdanshuliang @"订单数量"
+#define kehudingdanshijian @"订单时间"
 
 //业务员
 #define yeWuYuanName @"姓名"

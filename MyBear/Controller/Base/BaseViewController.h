@@ -11,4 +11,6 @@
 
 @interface BaseViewController : KKViewController
 - (void)isShowCenterBtn:(BOOL)isShow;
+- (void)kong;
+- (void)zhuxiao;
 @end

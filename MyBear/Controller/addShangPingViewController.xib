@@ -8,11 +8,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addShangPingViewController">
             <connections>
+                <outlet property="btn1" destination="Tzc-Oo-cbm" id="oPQ-DM-mnt"/>
                 <outlet property="imgBtn" destination="dd4-WY-7I5" id="y0F-d5-WaG"/>
+                <outlet property="lab" destination="Dum-mv-Jv4" id="yTq-3v-8U9"/>
+                <outlet property="lab1" destination="GZf-xE-L7T" id="kfb-ue-Ap6"/>
                 <outlet property="nameTf" destination="jLq-JB-yDN" id="31Q-su-7lM"/>
                 <outlet property="numTf" destination="TMu-wh-cDR" id="LWS-IY-xhN"/>
                 <outlet property="priceTf" destination="mXe-88-FgE" id="CcW-YG-3EL"/>
                 <outlet property="shangXianTf" destination="4o8-ek-hIo" id="liK-fX-0qc"/>
+                <outlet property="tf1" destination="JsU-dx-Lod" id="EIP-nk-0Q3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -73,11 +77,34 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="征订数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dum-mv-Jv4">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JsU-dx-Lod">
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="征订时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZf-xE-L7T">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tzc-Oo-cbm">
+                    <state key="normal" title="选择时间"/>
+                    <connections>
+                        <action selector="xuanzheshijan:" destination="-1" eventType="touchUpInside" id="uOh-Hl-GnS"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Tzc-Oo-cbm" firstAttribute="leading" secondItem="GZf-xE-L7T" secondAttribute="trailing" constant="33" id="12s-0p-pwY"/>
                 <constraint firstItem="dd4-WY-7I5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="73" id="1Eb-2l-QEy"/>
                 <constraint firstItem="TMu-wh-cDR" firstAttribute="leading" secondItem="Ecq-fH-Of3" secondAttribute="trailing" constant="43" id="3wM-gZ-sBf"/>
+                <constraint firstItem="Tzc-Oo-cbm" firstAttribute="top" secondItem="JsU-dx-Lod" secondAttribute="bottom" constant="38" id="4uu-K1-PPM"/>
                 <constraint firstItem="nvd-Cf-t7k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="68d-wm-NE3"/>
                 <constraint firstItem="dd4-WY-7I5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="53" id="6uR-8Q-pP3"/>
                 <constraint firstItem="jLq-JB-yDN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="146" id="7hu-Hh-yQQ"/>
@@ -87,19 +114,27 @@
                 <constraint firstItem="TMu-wh-cDR" firstAttribute="top" secondItem="mXe-88-FgE" secondAttribute="bottom" constant="21" id="OYA-O2-C6f"/>
                 <constraint firstItem="Ecq-fH-Of3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="R5V-cT-NFj"/>
                 <constraint firstAttribute="trailing" secondItem="4o8-ek-hIo" secondAttribute="trailing" constant="42" id="SoS-Sn-BmU"/>
+                <constraint firstItem="GZf-xE-L7T" firstAttribute="top" secondItem="Dum-mv-Jv4" secondAttribute="bottom" constant="47" id="T92-La-ewp"/>
                 <constraint firstItem="zSS-hE-ooc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="W9u-Ay-q5b"/>
                 <constraint firstItem="4o8-ek-hIo" firstAttribute="leading" secondItem="nvd-Cf-t7k" secondAttribute="trailing" constant="9" id="YTF-Tj-6gk"/>
                 <constraint firstItem="jLq-JB-yDN" firstAttribute="leading" secondItem="zSS-hE-ooc" secondAttribute="trailing" constant="78" id="ct2-Fo-Ncx"/>
+                <constraint firstAttribute="trailing" secondItem="JsU-dx-Lod" secondAttribute="trailing" constant="50" id="gPC-ss-lMW"/>
+                <constraint firstAttribute="trailing" secondItem="Tzc-Oo-cbm" secondAttribute="trailing" constant="50" id="gRo-FW-UAX"/>
                 <constraint firstItem="mXe-88-FgE" firstAttribute="top" secondItem="jLq-JB-yDN" secondAttribute="bottom" constant="22" id="h7P-cp-FN7"/>
                 <constraint firstItem="nvd-Cf-t7k" firstAttribute="top" secondItem="Ecq-fH-Of3" secondAttribute="bottom" constant="34" id="hXd-O0-4hN"/>
                 <constraint firstItem="KCo-ZF-wPb" firstAttribute="top" secondItem="zSS-hE-ooc" secondAttribute="bottom" constant="31" id="kDV-7V-ICS"/>
+                <constraint firstItem="Dum-mv-Jv4" firstAttribute="top" secondItem="nvd-Cf-t7k" secondAttribute="bottom" constant="99" id="kEF-tI-FHR"/>
+                <constraint firstItem="Dum-mv-Jv4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="kEt-a5-JGX"/>
                 <constraint firstItem="KCo-ZF-wPb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="kLn-IJ-6aP"/>
+                <constraint firstItem="GZf-xE-L7T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="mXn-ij-mfO"/>
                 <constraint firstItem="Ecq-fH-Of3" firstAttribute="top" secondItem="KCo-ZF-wPb" secondAttribute="bottom" constant="30" id="mpK-5h-YzT"/>
                 <constraint firstItem="4o8-ek-hIo" firstAttribute="top" secondItem="TMu-wh-cDR" secondAttribute="bottom" constant="25" id="ni2-Vj-xfU"/>
+                <constraint firstItem="JsU-dx-Lod" firstAttribute="top" secondItem="4o8-ek-hIo" secondAttribute="bottom" constant="90" id="oJW-ne-fWx"/>
                 <constraint firstItem="zSS-hE-ooc" firstAttribute="top" secondItem="dd4-WY-7I5" secondAttribute="bottom" constant="15" id="qqN-si-33S"/>
                 <constraint firstAttribute="trailing" secondItem="jLq-JB-yDN" secondAttribute="trailing" constant="42" id="rpd-hK-F3T"/>
+                <constraint firstItem="JsU-dx-Lod" firstAttribute="leading" secondItem="Dum-mv-Jv4" secondAttribute="trailing" constant="33" id="uta-Yn-V0L"/>
             </constraints>
-            <point key="canvasLocation" x="-37.5" y="47.5"/>
+            <point key="canvasLocation" x="-226.5" y="-21.5"/>
         </view>
     </objects>
 </document>

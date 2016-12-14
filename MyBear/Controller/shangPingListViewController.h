@@ -13,4 +13,6 @@
 @property(nonatomic,retain)NSMutableArray *dataSource;
 @property(nonatomic,retain)NSMutableDictionary *information;
 
+
+@property(nonatomic,assign)BOOL isFromKehu;
 @end

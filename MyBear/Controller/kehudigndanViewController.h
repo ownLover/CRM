@@ -1,18 +1,19 @@
 //
-//  KeHuListViewController.h
+//  kehudigndanViewController.h
 //  MyBear
 //
-//  Created by 紫平方 on 16/12/14.
+//  Created by 紫平方 on 16/12/15.
 //  Copyright © 2016年 bear. All rights reserved.
 //
 
 #import "BaseViewController.h"
 
-@interface KeHuListViewController : BaseViewController <UITableViewDataSource,UITableViewDelegate>
+@interface kehudigndanViewController : BaseViewController <UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,retain)UITableView *myTableView;
 @property(nonatomic,retain)NSMutableArray *dataSource;
 @property(nonatomic,retain)NSMutableDictionary *information;
 
+@property(nonatomic,assign)BOOL isFromYeWu;
+@property(nonatomic,assign)BOOL isFromLingDao;
 
-@property(nonatomic,assign)BOOL isChaKan;
 @end

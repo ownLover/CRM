@@ -12,13 +12,59 @@
 
 @end
 
-@implementation addKeHuViewController
+@implementation addKeHuViewController{
+    NSDictionary *yeWuDic;
+}
+@synthesize dataDic;
+@synthesize nowIndex;
+@synthesize isFromKeHu;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"客户";
-    [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
+    
+    if (isFromKeHu) {
+        NSString *string = LUserInor(kehuName);
+        
+        NSArray *arr = [LUserDefault objectForKey:kehuKey];
+        NSMutableArray * adataSource=[[NSMutableArray alloc]init];
+        if (arr) {
+            [adataSource addObjectsFromArray:arr];
+        }
+
+        
+        for (int i=0; i<adataSource.count; i++) {
+            NSDictionary *dic=adataSource[i];
+            if ([[dic validStringForKey:kehuName]isEqualToString:string]) {
+                dataDic=dic;
+                nowIndex=i;
+            }
+        }
+    }
+    
+    
+    if (dataDic) {
+        [self setNavRightButtonTitle:@"修改" selector:@selector(NavRightButtonClick)];
+        
+        _nameTf.text=[dataDic validStringForKey:kehuName];
+        _sexTf.text=[dataDic validStringForKey:kehuXingBie];
+        _zhiwuTf.text=[dataDic validStringForKey:kehuZhiWu];
+        _lianxiTf.text=[dataDic validStringForKey:kehuLianXi];
+        _youjianTf.text=[dataDic validStringForKey:kehuYouJian];
+        yeWuDic=[dataDic objectForKey:kehuDuiJieYeWuYuan];
+        
+        [_duijieYewuyuanBtn setTitle:[yeWuDic objectForKey:yeWuYuanName] forState:UIControlStateNormal];
+        [_dingDanzhuangtaiBtn setTitle:[dataDic objectForKey:kehuDingDanZhuangTai] forState:UIControlStateNormal];
+    }else{
+        
+       yeWuDic = [self yewuyuan];
+        [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
+        [_duijieYewuyuanBtn setTitle:[yeWuDic objectForKey:yeWuYuanName] forState:UIControlStateNormal];
+        [_dingDanzhuangtaiBtn setTitle:@"待签订" forState:UIControlStateNormal];
+
+
+    }
 }
 
 - (void)NavRightButtonClick{
@@ -41,12 +87,37 @@
         [array addObjectsFromArray:arr];
     }
     
-    [array addObject:@{kehuName:_nameTf.text,kehuXingBie:_sexTf.text,kehuZhiWu:_zhiwuTf.text,kehuLianXi:_lianxiTf.text,kehuYouJian:_youjianTf.text}];
+    
+    
+    
+    if (dataDic) {
+        [array replaceObjectAtIndex:nowIndex withObject:@{kehuName:_nameTf.text,kehuXingBie:_sexTf.text,kehuZhiWu:_zhiwuTf.text,kehuLianXi:_lianxiTf.text,kehuYouJian:_youjianTf.text,kehuDuiJieYeWuYuan:yeWuDic,kehuDingDanZhuangTai:_dingDanzhuangtaiBtn.titleLabel.text}];
+        KKShowNoticeMessage(@"修改成功");
+
+    }else{
+        [array addObject:@{kehuName:_nameTf.text,kehuXingBie:_sexTf.text,kehuZhiWu:_zhiwuTf.text,kehuLianXi:_lianxiTf.text,kehuYouJian:_youjianTf.text,kehuDuiJieYeWuYuan:yeWuDic,kehuDingDanZhuangTai:_dingDanzhuangtaiBtn.titleLabel.text}];
+        KKShowNoticeMessage(@"添加成功");
+
+    }
+    
     
     [LUserDefault setObject:array forKey:kehuKey];
     
-    KKShowNoticeMessage(@"添加成功");
     [self.navigationController popViewControllerAnimated:YES];
+
+}
+
+- (NSDictionary *)yewuyuan{
+    NSArray *arr = [LUserDefault objectForKey:yewuKey];
+   NSMutableArray *dataSource=[[NSMutableArray alloc]init];
+    if (arr) {
+        [dataSource addObjectsFromArray:arr];
+    }else{
+        [dataSource addObject:@{yeWuYuanName:@"业务员0号",yeWuYuanXingBie:@"男",yeWuYuanGongHao:@"001",yeWuYuanLianXi:@"15208107260",yeWuYuanYouJian:@"2225433460@qq.com"}];
+    }
+    
+    NSInteger index=arc4random()%dataSource.count;
+  return  [dataSource objectAtIndex:index];
 
 }
 
@@ -54,6 +125,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)dingdanzhuagntaiClick:(id)sender {
+    UIActionSheet *sheet=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"待签订",@"正在进行",@"已完成",@"已退回", nil];
+    [sheet showInView:Window0];
+
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"%ld",(long)buttonIndex);
+    NSArray *arr=@[@"待签订",@"正在进行",@"已完成",@"已退回"];
+    [_dingDanzhuangtaiBtn setTitle:[arr objectAtIndex:buttonIndex] forState:UIControlStateNormal];
+}
+
 
 /*
 #pragma mark - Navigation

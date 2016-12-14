@@ -12,22 +12,38 @@
 
 @end
 
-@implementation KeHuListViewController
+@implementation KeHuListViewController{
+    NSMutableArray *indexArr;
+}
 @synthesize myTableView;
 @synthesize information;
 @synthesize dataSource;
+@synthesize isChaKan;
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    indexArr=[[NSMutableArray alloc]init];
     NSArray *arr = [LUserDefault objectForKey:kehuKey];
-    dataSource=[[NSMutableArray alloc]init];
+  NSMutableArray * adataSource=[[NSMutableArray alloc]init];
     if (arr) {
-        [dataSource addObjectsFromArray:arr];
+        [adataSource addObjectsFromArray:arr];
+    }
+    dataSource=[[NSMutableArray alloc]init];
+    if (isChaKan) {
+        for (int i=0; i<adataSource.count; i++) {
+            NSDictionary *dic=[adataSource objectAtIndex:i];
+            NSDictionary *adic = [dic objectForKey:kehuDuiJieYeWuYuan];
+            if ([[adic validStringForKey:yeWuYuanGongHao]isEqualToString:LUserInor(yeWuYuanGongHao)]) {
+                [dataSource addObject:dic];
+                [indexArr addObject:LString(i)];
+            }
+        }
+
+    }else{
+        [dataSource addObjectsFromArray:adataSource];
     }
     [myTableView reloadData];
 
-    
 }
 
 
@@ -81,6 +97,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (isChaKan) {
+        NSDictionary *dic=dataSource[indexPath.row];
+        
+        addKeHuViewController *viewController = [[addKeHuViewController alloc]init];
+        viewController.dataDic=dic;
+        viewController.nowIndex=[[indexArr objectAtIndex:indexPath.row] integerValue];
+        [self.navigationController pushViewController:viewController animated:YES];
+
+    }else{
+        NSDictionary *dic=dataSource[indexPath.row];
+        
+        addKeHuViewController *viewController = [[addKeHuViewController alloc]init];
+        viewController.dataDic=dic;
+        viewController.nowIndex=indexPath.row;
+        [self.navigationController pushViewController:viewController animated:YES];
+
+    }
+    
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

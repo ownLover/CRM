@@ -17,6 +17,7 @@
 @synthesize myTableView;
 @synthesize information;
 @synthesize dataSource;
+@synthesize isFromKehu;
 
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -50,6 +51,10 @@
     
     [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
 
+    if (isFromKehu) {
+        [self setNavRightButtonTitle:@"" selector:@selector(kong)];
+
+    }
 }
 
 - (void)NavRightButtonClick{
@@ -82,6 +87,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary *dic=dataSource[indexPath.row];
+    
+    addShangPingViewController *viewController = [[addShangPingViewController alloc]init];
+    viewController.dataDic=dic;
+    viewController.nowIndex=indexPath.row;
+    if (isFromKehu) {
+        viewController.isFromKehu=YES;
+    }
+    [self.navigationController pushViewController:viewController animated:YES];
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

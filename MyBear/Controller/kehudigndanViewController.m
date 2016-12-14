@@ -1,48 +1,73 @@
 //
-//  lingDaoViewController.m
+//  kehudigndanViewController.m
 //  MyBear
 //
-//  Created by 紫平方 on 16/12/14.
+//  Created by 紫平方 on 16/12/15.
 //  Copyright © 2016年 bear. All rights reserved.
 //
 
-#import "lingDaoViewController.h"
-#import "yeWulistViewController.h"
-#import "KeHuListViewController.h"
-#import "shangPingListViewController.h"
-#import "yijianfankuiViewController.h"
+#import "kehudigndanViewController.h"
 
-@interface lingDaoViewController ()
+@interface kehudigndanViewController ()
 
 @end
 
-@implementation lingDaoViewController
+@implementation kehudigndanViewController
 @synthesize myTableView;
 @synthesize information;
 @synthesize dataSource;
 
-- (void)kong{
+@synthesize isFromYeWu;
+@synthesize isFromLingDao;
 
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    dataSource=[[NSMutableArray alloc]init];
+
+   NSArray *arr = [LUserDefault objectForKey:kehuKey];
+    
+    if (isFromYeWu) {
+        for ( int i=0; i<arr.count; i++) {
+            NSDictionary *dic=arr[i];
+            if ([[[dic objectForKey:kehuDuiJieYeWuYuan] objectForKey:yeWuYuanName] isEqualToString:LUserInor(yeWuYuanName)]) {
+                if ([dic objectForKey:kehudingdan]) {
+                    [dataSource addObjectsFromArray:[dic objectForKey:kehudingdan]];
+                    
+                }
+            }
+        }
+
+    }else if(isFromLingDao){
+        for ( int i=0; i<arr.count; i++) {
+            NSDictionary *dic=arr[i];
+            if ([dic objectForKey:kehudingdan]) {
+                [dataSource addObjectsFromArray:[dic objectForKey:kehudingdan]];
+                
+            }
+        }
+
+    }else{
+        for ( int i=0; i<arr.count; i++) {
+            NSDictionary *dic=arr[i];
+            if ([[dic objectForKey:kehuName] isEqualToString:LUserInor(kehuName)]) {
+                if ([dic objectForKey:kehudingdan]) {
+                    [dataSource addObjectsFromArray:[dic objectForKey:kehudingdan]];
+                    
+                }
+            }
+        }
+
+        }
+    
+    
+    [myTableView reloadData];
+    
 }
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self setNavLeftButtonTitle:@"" selector:@selector(kong)];
-    
-    
-    [self setNavLeftButtonTitle:LUserInor(@"nowType") selector:@selector(kong)];
-
-    [self setNavRightButtonTitle:@"注销" selector:@selector(zhuxiao)];
-    
-    self.title=@"CRM";
-    dataSource=[[NSMutableArray alloc]init];
-    [dataSource addObject:@"业务员"];
-    [dataSource addObject:@"客户"];
-    [dataSource addObject:@"商品"];
-    [dataSource addObject:@"意见反馈"];
+    // Do any additional setup after loading the view.
     myTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ApplicationWidth, ApplicationHeight-44)];
     myTableView.delegate = self;
     myTableView.dataSource = self;
@@ -70,7 +95,9 @@
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier01];
     }
-    cell.textLabel.text=dataSource[indexPath.row];
+//    @{kehudingdanShangPing:dataDic,kehudingdanshuliang:_tf1.text,kehudingdanshijian:_btn1.titleLabel.text}
+    NSDictionary *dic=dataSource[indexPath.row];
+    cell.textLabel.text=[[dic objectForKey:kehudingdanShangPing] objectForKey:shangPingName];
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = myBackgroundColor;
     return cell;
@@ -79,23 +106,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row==0) {
-        [self NavLeftButtonClick];
-    }
-    if (indexPath.row==1) {
-        [self NavRightButtonClick];
-    }
-    if (indexPath.row==2) {
-        shangPingListViewController *viewController = [[shangPingListViewController alloc]init];
-        [self.navigationController pushViewController:viewController animated:YES];
-;
-    }
-    if (indexPath.row==3) {
-        chakanYIjianViewController *viewController = [[chakanYIjianViewController alloc]init];
-        viewController.isFromLingDao=YES;
-        [self.navigationController pushViewController:viewController animated:YES];
-
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -118,18 +128,6 @@
 //    }
 //}
 
-
-- (void)NavLeftButtonClick{
-    yeWulistViewController *viewController = [[yeWulistViewController alloc]init];
-    [self.navigationController pushViewController:viewController animated:YES];
-
-}
-
-- (void)NavRightButtonClick{
-    KeHuListViewController *viewController = [[KeHuListViewController alloc]init];
-    [self.navigationController pushViewController:viewController animated:YES];
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

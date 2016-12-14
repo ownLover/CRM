@@ -15,6 +15,18 @@
 
 @implementation BaseViewController
 @synthesize centerBtn;
+- (void)kong{
+    
+}
+
+- (void)zhuxiao{
+    UINavigationController *nav=[[UINavigationController alloc]init];
+    LoginViewController *viewController = [[LoginViewController alloc]init];
+    nav.viewControllers=@[viewController];
+    [UIApplication sharedApplication].keyWindow.rootViewController=nav;
+    
+    
+}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -28,6 +40,7 @@
     self.view.backgroundColor=[UIColor whiteColor];
     
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:[NSString stringWithFormat:@"bg%ld.png",(long)arc4random()%5]]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:[NSString stringWithFormat:@"bg%ld.png",(long)0]]];
     
 }
 

@@ -15,6 +15,10 @@
 @implementation addShangPingViewController{
     NSString *tempImgPath;
 }
+@synthesize dataDic;
+@synthesize nowIndex;
+
+@synthesize isFromKehu;
 
 - (void)NavRightButtonClick{
     if ([_nameTf.text isEqualToString:@""]||[_priceTf.text isEqualToString:@""]||[_numTf.text isEqualToString:@""]||[_shangXianTf.text isEqualToString:@""]||!tempImgPath) {
@@ -28,20 +32,107 @@
         [array addObjectsFromArray:arr];
     }
     
-    [array addObject:@{shangPingName:_nameTf.text,shangPingJiaGe:_priceTf.text,shangPingNum:_numTf.text,shangPingShangXiang:_shangXianTf.text,shangPingImg:tempImgPath}];
+    if (dataDic) {
+        [array replaceObjectAtIndex:nowIndex withObject:@{shangPingName:_nameTf.text,shangPingJiaGe:_priceTf.text,shangPingNum:_numTf.text,shangPingShangXiang:_shangXianTf.text,shangPingImg:tempImgPath}];
+        KKShowNoticeMessage(@"修改成功");
+
+    }else{
+        [array addObject:@{shangPingName:_nameTf.text,shangPingJiaGe:_priceTf.text,shangPingNum:_numTf.text,shangPingShangXiang:_shangXianTf.text,shangPingImg:tempImgPath}];
+        KKShowNoticeMessage(@"添加成功");
+
+        
+    }
     
     [LUserDefault setObject:array forKey:shangPingKey];
     
-    KKShowNoticeMessage(@"添加成功");
+  
+    
     [self.navigationController popViewControllerAnimated:YES];
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
     // Do any additional setup after loading the view from its nib.
+    self.title=@"商品";
+    
+    _lab.hidden=YES;
+    _lab1.hidden=YES;
+    _tf1.hidden=YES;
+    _btn1.hidden=YES;
+    
+    if (dataDic) {
+        _nameTf.text=[dataDic validStringForKey:shangPingName];
+        _priceTf.text=[dataDic validStringForKey:shangPingJiaGe];
+        _numTf.text=[dataDic validStringForKey:shangPingNum];
+        _shangXianTf.text=[dataDic validStringForKey:shangPingShangXiang];
+        [_imgBtn setImage:[[UIImage alloc]initWithContentsOfFile:[dataDic validStringForKey:shangPingImg]] forState:UIControlStateNormal];;
+        [self setNavRightButtonTitle:@"修改" selector:@selector(NavRightButtonClick)];
+
+    }else{
+        [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
+
+    }
+    
+    if (isFromKehu) {
+        [self setNavRightButtonTitle:@"订购" selector:@selector(dinggou)];
+        _lab.hidden=NO;
+        _lab1.hidden=NO;
+        _tf1.hidden=NO;
+        _btn1.hidden=NO;
+
+    }
 }
+
+- (void)dinggou{
+    NSArray *arr=[LUserDefault objectForKey:kehuKey];
+    NSMutableArray *bigArr=[[NSMutableArray alloc]initWithArray:arr];
+
+    NSMutableDictionary *tDic=[[NSMutableDictionary alloc]init];;
+    NSInteger index=0;
+    for (int i=0; i<arr.count; i++) {
+        NSDictionary *dic=arr[i];
+        if ([LUserInor(kehuName) isEqualToString:[dic validStringForKey:kehuName]]) {
+            tDic=[[NSMutableDictionary alloc]initWithDictionary:dic];;
+            index=i;
+        }
+    }
+    
+    NSArray *arr1=[tDic objectForKey:kehudingdan];
+    NSMutableArray *array=[[NSMutableArray alloc]init];
+    if (arr1) {
+        [array addObjectsFromArray:arr1];
+    }
+    [array addObject:@{kehudingdanShangPing:dataDic,kehudingdanshuliang:_tf1.text,kehudingdanshijian:_btn1.titleLabel.text}];
+    [tDic setObject:array forKey:kehudingdan];
+
+    [bigArr replaceObjectAtIndex:index withObject:tDic];
+    [LUserDefault setObject:bigArr forKey:kehuKey];
+    KKShowNoticeMessage(@"订购成功");
+    [self.navigationController popViewControllerAnimated:YES];
+
+}
+- (IBAction)xuanzheshijan:(id)sender {
+    
+    [KKDatePickerView showWithDelegate:self
+                        datePickerMode:UIDatePickerModeDateAndTime
+                               minDate:[NSDate date]
+                               maxDate:nil
+                              showDate:[NSDate date]
+                         identifierKey:@"时间"];
+
+}
+
+#pragma mark ========================================
+#pragma mark == 【日期】
+#pragma mark ========================================
+- (void)KKDatePickerView:(KKDatePickerView*)datePickerView didFinishedWithDate:(NSDate *)aDate identifierKey:(NSString*)aIdentifierKey{
+    [_btn1 setTitle:[NSDate getStringFromDate:aDate dateFormatter:KKDateFormatter02] forState:UIControlStateNormal];
+    
+
+}
+
+
 - (IBAction)imgClick:(id)sender {
     UIActionSheet *actionSheet = [[UIActionSheet alloc]
                                   initWithTitle:nil

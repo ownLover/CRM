@@ -13,12 +13,50 @@
 @end
 
 @implementation addYeWuViewController
+@synthesize dataDic;
+@synthesize nowIndex;
+@synthesize isZijI;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"业务员";
-    [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
+    
+    
+    NSArray *arr = [LUserDefault objectForKey:yewuKey];
+    NSMutableArray *dataSource=[[NSMutableArray alloc]init];
+    if (arr) {
+        [dataSource addObjectsFromArray:arr];
+    }else{
+        [dataSource addObject:@{yeWuYuanName:@"业务员0号",yeWuYuanXingBie:@"男",yeWuYuanGongHao:@"001",yeWuYuanLianXi:@"15208107260",yeWuYuanYouJian:@"2225433460@qq.com"}];
+    }
+    
+
+    if (isZijI==YES) {
+        NSString *string = LUserInor(yeWuYuanGongHao);
+        for (int i=0; i<dataSource.count; i++) {
+            NSDictionary *dic=[dataSource objectAtIndex:i];
+            ;
+            if ([[dic validStringForKey:yeWuYuanGongHao]isEqualToString:string]) {
+                dataDic=dic;
+                nowIndex=i;
+            }
+        }
+    }
+    
+    
+    if (dataDic) {
+        _xingBietf.text=[dataDic validStringForKey:yeWuYuanXingBie];
+        _nametf.text=[dataDic validStringForKey:yeWuYuanName];
+        _gonghaoTf.text=[dataDic validStringForKey:yeWuYuanGongHao];
+        _lianxifangshiTf.text=[dataDic validStringForKey:yeWuYuanLianXi];
+        _youjianTf.text=[dataDic validStringForKey:yeWuYuanYouJian];
+        [self setNavRightButtonTitle:@"修改" selector:@selector(NavRightButtonClick)];
+
+    }else{
+        [self setNavRightButtonTitle:@"添加" selector:@selector(NavRightButtonClick)];
+
+    }
 
 }
 
@@ -48,11 +86,19 @@
         [array addObjectsFromArray:arr];
     }
     
-    [array addObject:@{yeWuYuanName:_nametf.text,yeWuYuanXingBie:_xingBietf.text,yeWuYuanGongHao:_gonghaoTf.text,yeWuYuanLianXi:_lianxifangshiTf.text,yeWuYuanYouJian:_youjianTf.text}];
+    if (dataDic) {
+        [array replaceObjectAtIndex:nowIndex withObject:@{yeWuYuanName:_nametf.text,yeWuYuanXingBie:_xingBietf.text,yeWuYuanGongHao:_gonghaoTf.text,yeWuYuanLianXi:_lianxifangshiTf.text,yeWuYuanYouJian:_youjianTf.text}];
+        KKShowNoticeMessage(@"修改成功");
+
+    }else{
+        [array addObject:@{yeWuYuanName:_nametf.text,yeWuYuanXingBie:_xingBietf.text,yeWuYuanGongHao:_gonghaoTf.text,yeWuYuanLianXi:_lianxifangshiTf.text,yeWuYuanYouJian:_youjianTf.text}];
+        KKShowNoticeMessage(@"添加成功");
+
+    }
+    
     
     [LUserDefault setObject:array forKey:yewuKey];
     
-    KKShowNoticeMessage(@"添加成功");
     [self.navigationController popViewControllerAnimated:YES];
 }
 
